@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eventos DOM</title>
+    <style>
+      #box {
+        width: 200px;
+        height: 200px;
+        background-color: #9df19d;
+        font-size: 1.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">Interaja...</div>
+
+    <script>
+      const box = document.getElementById("box");
+
+      function enter() {
+        box.innerText = "Entrou!";
+      }
+
+      function left() {
+        box.innerText = "Saiu!";
+        box.style.background = '#9df19d'
+      }
+
+      function clicked() {
+        box.innerText = "Clicou!";
+        box.style.background = 'red'
+      }
+
+      box.addEventListener("mouseenter", enter);
+      box.addEventListener("mouseleave", left);
+      box.addEventListener("click", clicked);
+    </script>
+  </body>
+</html>
