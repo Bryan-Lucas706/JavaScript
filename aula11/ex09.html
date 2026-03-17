@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aeroporto</title>
+  </head>
+  <body>
+    <h1>Sistema de Visto</h1>
+    <p>O avião vai para o Brasil, de qual pais você é?</p>
+    <label for="pais">Seu pais: </label>
+    <input type="text" id="pais" />
+    <button type="submit" id="enviar">Enviar</button>
+    <p id="res"></p>
+
+    <script>
+      const enviarBtn = document.getElementById("enviar");
+
+      function verificarPais() {
+        const pais = document.getElementById("pais").value;
+        const res = document.getElementById("res");
+
+        if (pais == 'Brasil' || pais == 'brasil') {
+          res.innerText = "Brasileiro não precisa de visto para o Brasil";
+        } else {
+          res.innerText = `Nacionalidade de ${pais} precisa de visto para o Brasil`;
+        }
+      }
+
+      enviarBtn.addEventListener("click", verificarPais);
+    </script>
+  </body>
+</html>
