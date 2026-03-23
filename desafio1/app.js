@@ -1,8 +1,5 @@
 const verify = document.getElementById("verificar");
 
-const esqueleto =
-  "https://imgs.search.brave.com/10EoTWIVNyFGN5RLklM-G06115u61kg2_x0l5JFfERI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3RpL2ZvdG9z/LWdyYXRpcy90Mi8y/MjY3NTAyNS1lc3F1/ZWxldG8taG9tZW0t/ZGUtbmVnb2Npb3Mt/dHJhYmFsaGFuZG8t/ZGVudHJvLWEtZXNj/cml0b3Jpby1tb3J0/by1lc3F1ZWxldG8t/dHJhYmFsaGFuZG8t/YXMtZXNjcml0b3Jp/by1nZW5lcmF0aXZv/LWFpLWZvdG8uanBn";
-
 const homemIdoso =
   "https://imgs.search.brave.com/zETjzF-F2iXUNuXmaLZzWccFH1tszqTOckzP6wrrQnA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3RpL2ZvdG9z/LWdyYXRpcy90Mi83/NTY4Njc5LXJldHJh/dG8tZGUtc29ycmlz/by1ib25pdG8taG9t/ZW0tbWFpcy12ZWxo/by1hZ3JpY3VsdG9y/LWhvbWVtLWlkb3Nv/LW5hLWZhemVuZGEt/ZW0tZGlhLWRlLXZl/cmFvLWF0aXZpZGFk/ZS1qYXJkaW5hZ2Vt/LWhvbWVtLWlkb3Nv/LWJyYXNpbGVpcm8t/Zm90by5qcGc";
 const mulherIdosa =
@@ -20,9 +17,6 @@ const homemBebe =
 const mulherBebe =
   "https://imgs.search.brave.com/CKlZ4i-cIYkQnuZAQyVrSY-1jeyhSUgx2JQFxsTUMnI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3RpL2ZvdG9z/LWdyYXRpcy90Mi83/MDc4MDM5OC11bWEt/cGVxdWVuby1tZW5p/bmEtZS1zb3JyaWRl/bnRlLWRlbnRyby1m/cmVudGUtZG8tdW1h/LWFydm9yZS1mb3Rv/LmpwZw";
 
-const espermatozoide =
-  "https://imgs.search.brave.com/Wn0sYRJEDuAjLbVJJFjzjLif-7wp3cNHH3BEm2N4ofE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTcy/MjYzMzEzL3B0L2Zv/dG8vc2VqYW0uanBn/P3M9NjEyeDYxMiZ3/PWlzJms9MjAmYz0t/VmFxSDVlbGQ1dWZr/Vm5CeTZpaTNTcXhv/OE9abkFDSk5PVllB/TUh6MUVrPQ";
-
 function renderPerson(event) {
   event.preventDefault();
   const data = new Date();
@@ -35,42 +29,35 @@ function renderPerson(event) {
 
   const response = document.getElementById("resposta");
 
-  if (yearOfBirth === 0 || yearOfBirth > currentYear) {
+  if (yearOfBirth === 0 || yearOfBirth < 0 || yearOfBirth > currentYear) {
     alert("[ERRO] Verifique os dados e tente novamente!");
     return;
   }
   response.innerHTML = `<p>Você tem ${age} anos de idade</p>`;
 
-  if (yearOfBirth < 0) {
-    response.innerHTML = `<p>Você tem ${yearOfBirth} anos de idade</p>`;
-    response.innerHTML += `<img src="${espermatozoide}" alt="um espermatozoide" >`;
-  } else if (age <= 10) {
-    if (sex === "masculino") {
+  // HOMEM
+  if (sex === "masculino") {
+    if (age <= 10) {
       response.innerHTML += `<img src="${homemBebe}" alt="Um menino com menos de 10 anos" >`;
-    } else {
-      response.innerHTML += `<img src="${mulherBebe}" alt="Uma menina com menos de 10 anos" >`;
-    }
-  } else if (age > 10 && age <= 25) {
-    if (sex === "masculino") {
+    } else if (age <= 25) {
       response.innerHTML += `<img src="${homemJovem}" alt="Um jovem com menos de 25 anos" >`;
-    } else {
-      response.innerHTML += `<img src="${mulherJovem}" alt="Uma jovem com menos de 25 anos" >`;
-    }
-  } else if (age > 25 && age <= 50) {
-    if (sex === "masculino") {
+    } else if (age <= 50) {
       response.innerHTML += `<img src="${homemAdulto}" alt="Um adulto com menos de 50 anos" >`;
-    } else {
-      response.innerHTML += `<img src="${mulherAdulta}" alt="Uma adulta com menos de 50 anos" >`;
-    }
-  } else if (age > 50 && age < 100) {
-    if (sex === "masculino") {
+    } else if (age < 100) {
       response.innerHTML += `<img src="${homemIdoso}" alt="Um idoso com menos de 100 anos" >`;
-    } else {
+    }
+  }
+  // MULHER
+  if (sex === "feminino") {
+    if (age <= 10) {
+      response.innerHTML += `<img src="${mulherBebe}" alt="Uma menina com menos de 10 anos" >`;
+    } else if (age <= 25) {
+      response.innerHTML += `<img src="${mulherJovem}" alt="Uma jovem com menos de 25 anos" >`;
+    } else if (age <= 50) {
+      response.innerHTML += `<img src="${mulherAdulta}" alt="Uma adulta com menos de 50 anos" >`;
+    } else if (age < 100) {
       response.innerHTML += `<img src="${mulherIdosa}" alt="Uma idosa com menos de 100 anos" >`;
     }
-  } else {
-    response.innerHTML += `<img src="${esqueleto}" alt="Um cadaver" >`;
   }
 }
-
 verify.addEventListener("click", renderPerson);
