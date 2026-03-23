@@ -21,12 +21,12 @@ function timeOfDay() {
     body.style.backgroundImage = " linear-gradient(#0A191D, #133742)";
   }
 
-  else if (currentTime >= 6 && currentTime <= 12) {
+  else if (currentTime >= 6 && currentTime < 12) {
     textTime.textContent += "Bom dia";
     imageTime.innerHTML = `<img src="${nascerDoSol}" alt="imagem de um nascer do sol">`;
     body.style.backgroundImage = " linear-gradient(#678ca4 40%, #423609)";
 
-  } else if (currentTime > 12 && currentTime <= 18) {
+  } else if (currentTime >= 12 && currentTime < 18) {
     textTime.textContent += "Boa Tarde";
     imageTime.innerHTML = `<img src="${porDoSol}" alt="imagem do por do sol">`;
     body.style.backgroundImage = " linear-gradient(#C79D6C, #B0441A)";
