@@ -27,6 +27,6 @@ input{
     margin: 10px;
 }
 
-#btnContar{
+input[type="reset"],[type="submit"] {
     padding: 5px;
 }

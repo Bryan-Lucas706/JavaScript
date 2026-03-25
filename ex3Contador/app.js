@@ -1,24 +1,42 @@
 const btnContar = document.getElementById("btnContar");
+const btnClear = document.querySelector('input[type="reset"]');
+let response = document.getElementById("resultado");
 
 function count(event) {
   event.preventDefault();
 
-  const end = Number(document.getElementById("fim").value);
-  const step = Number(document.getElementById("passo").value);
-  let start = Number(document.getElementById("inicio").value);
-  let response = document.getElementById("resultado");
+  const e = document.getElementById("fim").value;
+  const p = document.getElementById("passo").value;
+  const s = document.getElementById("inicio").value;
 
-  if (step === 0) {
-    alert("Passo invalido! Corrija para proceguir");
-    return
+  if (s.length == 0 || e.length == 0 || p.length == 0) {
+    alert("Campo vazio. Preencha para proceguir");
+    return;
   }
 
-  response.textContent = "";
+  const end = Number(e);
+  const step = Number(p);
+  let start = Number(s);
 
-  for (start; start <= end; start += step) {
-    response.textContent += `${start} 👉 `;
+  response.innerHTML = "Contando: <br>";
+  // Contagem crescente
+  if (start < end) {
+    for (start; start <= end; start += step) {
+      response.innerHTML += `${start} 👉 `;
+    }
+  } else {
+    // Contagem regressiva
+    for (start; start >= end; start -= step) {
+      response.innerHTML += `${start} 👉 `;
+    }
   }
-  response.textContent += "🏁";
+
+  response.innerHTML += "🏁";
+}
+
+function clearCount() {
+  response.innerHTML = "Preparando a contagem...";
 }
 
 btnContar.addEventListener("click", count);
+btnClear.addEventListener("click", clearCount);

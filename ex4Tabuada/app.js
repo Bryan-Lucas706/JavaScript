@@ -3,10 +3,10 @@ const btnGerar = document.getElementById("btnGerar");
 function gerarTabuada(event) {
   event.preventDefault();
 
-  const numero = Number(document.getElementById("numero").value);
+  const numero = document.getElementById("numero").value;
   const tabuada = document.getElementById("tabuada");
 
-  if (numero === 0) {
+  if (numero.length == 0) {
     alert("Operação invalida. Preencha o campo");
     return;
   }
