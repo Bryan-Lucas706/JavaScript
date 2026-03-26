@@ -9,7 +9,9 @@ let list = [];
 function finish() {
   const menorNum = Math.min(...list);
   const maiorNum = Math.max(...list);
-  const media = somar() / list.length;
+  list.sort()
+  list[list.length - 1]
+  const media = Math.round(somar() / list.length);
 
   response.innerHTML += `<p> Ao todo, temos ${list.length} números cadastrados.</p>`;
   response.innerHTML += `<p> O menor valor informado foi ${menorNum}.</p>`;
