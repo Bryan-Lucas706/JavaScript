@@ -4,7 +4,7 @@ const btnFinalizar = document.getElementById("btnFinalizar");
 const btnLimpar = document.getElementById("btnLimpar");
 const response = document.getElementById("resultado");
 
-let list = [3, 5, 7, 8, 1, 9];
+let list = [];
 
 function finish() {
   const menorNum = Math.min(...list);
