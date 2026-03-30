@@ -4,13 +4,11 @@ const btnFinalizar = document.getElementById("btnFinalizar");
 const btnLimpar = document.getElementById("btnLimpar");
 const response = document.getElementById("resultado");
 
-let list = [];
+let list = [3, 5, 7, 8, 1, 9];
 
 function finish() {
   const menorNum = Math.min(...list);
   const maiorNum = Math.max(...list);
-  list.sort()
-  list[list.length - 1]
   const media = Math.round(somar() / list.length);
 
   response.innerHTML += `<p> Ao todo, temos ${list.length} números cadastrados.</p>`;
