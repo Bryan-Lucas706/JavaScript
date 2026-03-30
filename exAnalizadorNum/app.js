@@ -7,6 +7,10 @@ const response = document.getElementById("resultado");
 let list = [];
 
 function finish() {
+  if (list.length === 0) {
+    alert("[ERRO] Adicione algum valor a lista");
+    return;
+  }
   const menorNum = Math.min(...list);
   const maiorNum = Math.max(...list);
   const media = Math.round(somar() / list.length);
